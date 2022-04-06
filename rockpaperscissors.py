@@ -1,3 +1,4 @@
+import getpass
 def introduction():
     print("\nWelcome to Rock, Paper, Scissors!\n", 
           "Rules:\n", 
@@ -13,10 +14,10 @@ def introduction():
     else:
         print("Invalid input, please make a choice.")
 def game():
-    # player 1 inputs their selection
-    player1 = input("Player 1: rock, paper, or scissors? ")
-    # player 2 inputs their selection
-    player2 = input("Player 2: rock, paper, or scissors? ")
+    # player 1 inputs their selection privately
+    player1 = getpass.getpass("Player 1: rock, paper, or scissors? ")
+    # player 2 inputs their selection privately
+    player2 = getpass.getpass("Player 2: rock, paper, or scissors? ")
     # game conditions
     if player1 == player2:
         print("Stalemate")
@@ -38,7 +39,6 @@ def game():
     else:
         print("Invald input! Please try again.")
     playagain()
-
 def playagain():
     user_command = input("Do you want to play again? y/n ")
     if user_command == "y":
@@ -48,3 +48,5 @@ def playagain():
         quit()
 
 introduction()
+score_p1 = 0
+score_p2 = 0
