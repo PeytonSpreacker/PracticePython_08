@@ -13,7 +13,9 @@ def introduction():
         quit()
     else:
         print("Invalid input, please make a choice.")
+        
 def game():
+    global score_p1, score_p2
     # player 1 inputs their selection privately
     player1 = getpass.getpass("Player 1: rock, paper, or scissors? ")
     # player 2 inputs their selection privately
@@ -24,21 +26,30 @@ def game():
     elif player1 == "rock":
         if player2 == "scissors":
             print("Rock smashes scissors! Player 1 wins!")
+            score_p1 = score_p1 + 1
         else:
             print("Paper covers rock! Player 2 wins")
+            score_p2 = score_p2 + 1
     elif player1 == "paper":
         if player2 == "rock":
             print("Paper covers rock! Player 1 wins!")
+            score_p1 = score_p1 + 1
         else:
             print("Scissors cuts paper! Player 2 wins.")
+            score_p2 = score_p2 + 1
     elif player1 == "scissors":
         if player2 == "paper":
             print("Scissors cuts paper! Player 1 wins!")
+            score_p1 = score_p1 + 1
         else:
             print("Rock smashes scissors! Player 2 wins.")
+            score_p2 = score_p2 + 1
     else:
         print("Invald input! Please try again.")
+    print("Player 1: ", score_p1)
+    print("Player 2: ", score_p2)
     playagain()
+    
 def playagain():
     user_command = input("Do you want to play again? y/n ")
     if user_command == "y":
@@ -47,6 +58,6 @@ def playagain():
         print("Thanks for playing!")
         quit()
 
-introduction()
 score_p1 = 0
 score_p2 = 0
+introduction()
